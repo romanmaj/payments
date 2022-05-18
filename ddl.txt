@@ -1,5 +1,6 @@
 
 create schema payments collate utf8mb4_0900_ai_ci;
+use payments;
 
 create table catalogs
 (
@@ -46,4 +47,7 @@ create table products
 	constraint user_address
 		foreign key (user_address) references user (address)
 );
+
+INSERT INTO payments.user (address, cash1, cash2, cash3) VALUES ('address', 70.22, 73.32, 320.2);
+INSERT INTO payments.assets (type, level, address) VALUES (1, 5, 'address');
 
