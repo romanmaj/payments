@@ -1,0 +1,49 @@
+
+create schema payments collate utf8mb4_0900_ai_ci;
+
+create table catalogs
+(
+	id int auto_increment
+		primary key,
+	name varchar(255) null,
+	description varchar(255) null,
+	url varchar(255) null,
+	cost1 int null,
+	cost2 int null,
+	cost3 int null,
+	req1 int null,
+	req2 int null,
+	req3 int null,
+	category int null
+);
+
+create table user
+(
+	address varchar(255) not null
+		primary key,
+	cash1 float null,
+	cash2 float null,
+	cash3 float null
+);
+
+create table assets
+(
+	id int auto_increment
+		primary key,
+	type int null,
+	level int null,
+	address varchar(255) null,
+	constraint address
+		foreign key (address) references user (address)
+);
+
+create table products
+(
+	address varchar(255) not null,
+	id int auto_increment,
+	user_address varchar(255) null,
+	primary key (id, address),
+	constraint user_address
+		foreign key (user_address) references user (address)
+);
+
