@@ -22,7 +22,6 @@ const buildSuccess = (data, res) => {
     success: true,
     data
   }
-  console.log(response)
 
   res.json(response)
   res.end()
